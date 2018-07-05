@@ -1,0 +1,32 @@
+{
+  "name": "smart-review",
+  "version": "1.0.0",
+  "description": "Hyperledger Fabric Smart Review Application",
+  "main": "smart-review.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "fabric-ca-client": "^1.1.2",
+    "fabric-client": "^1.1.2",
+    "grpc": "^1.6.0",
+    "http": "0.0.0",
+    "os": "^0.1.1",
+    "path": "^0.12.7",
+    "util": "^0.11.0"
+  },
+  "author": "Preeti, Tejaswini",
+  "license": "Apache-2.0",
+  "keywords": [
+    "Hyperledger",
+    "Fabric",
+    "Smart",
+    "Review",
+    "Application"
+  ],
+  "devDependencies": {}
+}
