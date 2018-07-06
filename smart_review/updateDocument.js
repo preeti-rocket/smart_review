@@ -4,13 +4,14 @@ var path = require('path');
 var util = require('util');
 var os = require('os');
 var user='user1';
+var docID = '';
 var content = 'Initial Content';
 
 
 process.argv.forEach(function (val, index, array) {
 	if(index == 2){
 	console.log("Updating the document " + val);	
-	user = val;
+	docID = val;
 	}
 	if(index == 3){
 	console.log("Updating the document " + val);	
@@ -61,13 +62,14 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 	// get a transaction id object based on the current user assigned to fabric client
 	tx_id = fabric_client.newTransactionID();
 	console.log("Assigning transaction_id: ", tx_id._transaction_id);
-
+	console.log("docID: ", docID);
+	console.log("content: ", content);
 	// must send the proposal to endorsing peers
 	var request = {
 		//targets: let default to the peer assigned to the client
 		chaincodeId: 'smart_review',
 		fcn: 'changeDocumentContent',
-		args: [user, content],
+		args: [docID, content],
 		chainId: 'mychannel',
 		txId: tx_id
 	};
