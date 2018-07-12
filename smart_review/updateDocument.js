@@ -14,7 +14,7 @@ process.argv.forEach(function (val, index, array) {
 	docID = val;
 	}
 	if(index == 3){
-	console.log("Updating the document " + val);	
+	console.log("Updating the content " + val);	
 	content = val;
 	}
 });

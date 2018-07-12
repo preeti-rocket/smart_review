@@ -31,22 +31,8 @@ let Chaincode = class {
       return shim.error(err);
     }
   }
-
-  async queryDocument(stub, args) {
-    if (args.length != 1) {
-      throw new Error('Incorrect number of arguments. Expecting Document ID: Example Doc005');
-    }
-    let doc = args[0];
-    let documentContent = await stub.getState(doc); //get the document from chaincode state
-	
-    if (!documentContent || documentContent.toString().length <= 0) {
-      throw new Error('No Document exists with ID ' + doc);
-    }
-    console.log(documentContent.toString());
-    return documentContent;
-  }
-
-  async initLedger(stub, args) {
+  
+    async initLedger(stub, args) {
     console.info('============= START : Initialize Ledger ===========');
     let documents = [];
     documents.push({
@@ -71,6 +57,20 @@ let Chaincode = class {
       console.info('Added <--> ', documents[i]);
     }
     console.info('============= END : Initialize Ledger ===========');
+  }
+
+  async queryDocument(stub, args) {
+    if (args.length != 1) {
+      throw new Error('Incorrect number of arguments. Expecting Document ID: Example Doc005');
+    }
+    let doc = args[0];
+    let documentContent = await stub.getState(doc); //get the document from chaincode state
+	
+    if (!documentContent || documentContent.toString().length <= 0) {
+      throw new Error('No Document exists with ID ' + doc);
+    }
+    console.log(documentContent.toString());
+    return documentContent;
   }
 
   async queryAllDocuments(stub, args) {
